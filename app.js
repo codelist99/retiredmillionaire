@@ -8,7 +8,4 @@ else if(window.Hls?.isSupported()){const hls=new Hls({enableWorker:true});hls.lo
 listen.addEventListener('click',async()=>{video.muted=false;video.controls=true;await video.play();listen.classList.add('hidden')});
 video.addEventListener('play',()=>listen.classList.add('hidden'));
 
-document.querySelector('#cta').addEventListener('click',()=>{
-  window.dispatchEvent(new CustomEvent('retired-millionaire:cta'));
-  alert('The next-step destination will be connected when it is provided.');
-});
+document.querySelector('#cta').addEventListener('click',()=>window.dispatchEvent(new CustomEvent('retired-millionaire:cta')));
