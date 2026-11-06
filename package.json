@@ -1,6 +1,14 @@
 {
-  "name":"retired-millionaire",
-  "private":true,
-  "version":"1.0.0",
-  "scripts":{"dev":"npx serve .","test":"node --check app.js"}
+  "name": "retired-millionaire",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "npx serve .",
+    "test": "node --check app.js && node --check tracker.js && node --check admin/admin.js && node --check api/track.mjs && node --check api/admin-report.mjs",
+    "migrate": "node --env-file=.env.local scripts/migrate.mjs"
+  },
+  "dependencies": {
+    "@vercel/functions": "^3.11.0",
+    "pg": "^8.23.1"
+  }
 }

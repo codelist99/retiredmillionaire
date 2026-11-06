@@ -7,3 +7,4 @@ local-page.png
 mobile-page.png
 
 .vercel
+.env*

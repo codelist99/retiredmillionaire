@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Retired Millionaire Analytics</title><link rel="stylesheet" href="/admin/admin.css"></head>
+<body>
+  <section id="login" class="login-card">
+    <div class="logo">RM</div><h1>Analytics Login</h1><p>Retired Millionaire admin</p>
+    <form id="login-form"><label>Admin PIN<input name="pin" type="password" inputmode="numeric" autofocus required></label><button>Open dashboard</button><b id="login-error"></b></form>
+  </section>
+  <main id="dashboard" hidden>
+    <header><div><small>RETIRED MILLIONAIRE</small><h1>Visitor Analytics</h1><p>Landing-page engagement and MAKE checkout clicks</p></div><div class="actions"><select id="period"><option value="month">Current month</option><option value="7d">Last 7 days</option><option value="30d">Last 30 days</option><option value="all">All time</option></select><button id="refresh">Refresh</button><button id="logout" class="secondary">Log out</button></div></header>
+    <p class="notice">Checkout sales are not available because payment happens on MAKE Wellness. “Checkout clicks” measures people who clicked the access button.</p>
+    <section class="cards" id="cards"></section>
+    <section class="two"><article><h2>Time-on-page drop-off</h2><p>How long each visit stayed engaged before leaving</p><div id="dropoff"></div></article><article><h2>Video funnel</h2><p>Furthest video milestone reached per visit</p><div id="video-funnel"></div></article></section>
+    <article><h2>Daily performance</h2><div class="table-wrap"><table><thead><tr><th>Day</th><th>Visits</th><th>Checkout clicks</th><th>Average engaged time</th></tr></thead><tbody id="timeline"></tbody></table></div></article>
+    <article><h2>Recent visits</h2><p>No names or private checkout information—only anonymous visit activity.</p><div class="table-wrap"><table><thead><tr><th>Visit</th><th>Device</th><th>Started</th><th>Engaged</th><th>Video</th><th>Checkout clicked</th></tr></thead><tbody id="recent"></tbody></table></div></article>
+  </main>
+  <script src="/admin/admin.js"></script>
+</body></html>
