@@ -8,4 +8,18 @@ else if(window.Hls?.isSupported()){const hls=new Hls({enableWorker:true});hls.lo
 listen.addEventListener('click',async()=>{video.muted=false;video.controls=true;await video.play();listen.classList.add('hidden')});
 video.addEventListener('play',()=>listen.classList.add('hidden'));
 
-document.querySelector('#cta').addEventListener('click',()=>window.dispatchEvent(new CustomEvent('retired-millionaire:cta')));
+document.querySelector('#cta').addEventListener('click',event=>{
+  window.dispatchEvent(new CustomEvent('retired-millionaire:cta'));
+  event.preventDefault();
+  const sharedCart=event.currentTarget.href;
+  const checkout='https://makewellness.com/630BA81D95/Shopping/Checkout';
+  const cartWindow=window.open('about:blank','make-cart-setup','popup=yes,width=120,height=120,left=-10000,top=-10000');
+  if(!cartWindow){location.assign(sharedCart);return}
+  document.querySelector('#checkout-status').hidden=false;
+  event.currentTarget.style.pointerEvents='none';
+  cartWindow.location.replace(sharedCart);
+  setTimeout(()=>{
+    try{cartWindow.close()}catch{}
+    location.assign(checkout);
+  },5000);
+});
